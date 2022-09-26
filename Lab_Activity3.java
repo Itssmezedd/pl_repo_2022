@@ -54,8 +54,6 @@ public class Lab_Activity3 {
             }
 
             // delimiter
-            if (splittedInput.get(i).equals(";")) {
-
             if (splittedInput.get(i).contains(";")) {
 
                 tokens.add("<delimiter>");
