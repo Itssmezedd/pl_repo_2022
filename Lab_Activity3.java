@@ -25,38 +25,34 @@ public class Lab_Activity3 {
     public static ArrayList<String> tokenizeInput(ArrayList<String> splittedInput) {
 
         ArrayList<String> tokens = new ArrayList<>();
-        boolean isIdentifier = true;
+
+        String numbers = "1234567890";
+        String data_types = "int double String char boolean";
+        String assignment_operator = "=";
+        String bol = "true false";
         for (int i = 0; i < splittedInput.size(); i++) {
             // data type
-            if (splittedInput.get(i).equals("int") || splittedInput.get(i).equals("String")
-                    || splittedInput.get(i).equals("double") || splittedInput.get(i).equals("char")
-                    || splittedInput.get(i).equals("boolean")) {
-                tokens.add("data type");
-            }
-
-            // identifier
-            if (isIdentifier) {
-                isIdentifier = false;
-                tokens.add("<identifier>");
+            if (data_types.contains(splittedInput.get(i))) {
+                tokens.add("<data type>");
             }
 
             // assignment operator
-            if (splittedInput.get(i).equals("=")) {
+            else if (assignment_operator.contains(splittedInput.get(i))) {
                 tokens.add("<assignment_operator>");
             }
 
             // value
-            if (splittedInput.get(i).contains("true")
-                    || splittedInput.get(i).contains("false")
-                    || Character.isDigit(splittedInput.get(i).charAt(0))
+            else if (numbers.contains(splittedInput.get(i))
                     || Character.toString(splittedInput.get(i).charAt(0)).equals("\"")) {
                 tokens.add("<value>");
             }
 
             // delimiter
-            if (splittedInput.get(i).contains(";")) {
+            else if (Character.toString(splittedInput.get(i).charAt(0)).equals(";")) {
 
                 tokens.add("<delimiter>");
+            } else {
+                tokens.add("<identifier>");
             }
         }
         return tokens;
