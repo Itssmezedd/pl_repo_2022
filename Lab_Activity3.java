@@ -29,7 +29,8 @@ public class Lab_Activity3 {
         String numbers = "1234567890";
         String data_types = "int double String char boolean";
         String assignment_operator = "=";
-        String bol = "true false";
+        String bol = "true True TRUE false False FALSE";
+
         for (int i = 0; i < splittedInput.size(); i++) {
             // data type
             if (data_types.contains(splittedInput.get(i))) {
@@ -43,7 +44,8 @@ public class Lab_Activity3 {
 
             // value
             else if (numbers.contains(splittedInput.get(i))
-                    || Character.toString(splittedInput.get(i).charAt(0)).equals("\"")) {
+                    || Character.toString(splittedInput.get(i).charAt(0)).equals("\"")
+                    || bol.contains(splittedInput.get(i))) {
                 tokens.add("<value>");
             }
 
