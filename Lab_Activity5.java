@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Lab_Activity5 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -9,7 +8,6 @@ public class Lab_Activity5 {
         System.out.println(result(input));
 
     }
-
     public static String result(String input) {
         String[] specific = input.split(" ");
         String result = "";
