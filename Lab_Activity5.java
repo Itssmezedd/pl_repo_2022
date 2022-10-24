@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Lab_Activity5 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -8,6 +9,7 @@ public class Lab_Activity5 {
         System.out.println(result(input));
 
     }
+
     public static String result(String input) {
         String[] specific = input.split(" ");
         String result = "";
@@ -34,7 +36,10 @@ public class Lab_Activity5 {
                 }
             } else if (specific[i].equals("String")) {
                 if (specific[2].equals("=")
-                        && Character.toString(specific[3].charAt(specific[3].length() - 1)).equals("\"")
+                        && Character.toString(specific[3].charAt(0)).equals("\"")
+                        && Character.toString(
+                                specific[specific.length - 2].charAt(specific[specific.length - 2].length() - 1))
+                                .equals("\"")
                         && specific[specific.length - 1].equals(";")) {
                     result = "Semantically Correct!";
                     break;
@@ -44,8 +49,11 @@ public class Lab_Activity5 {
                 }
             } else if (specific[i].equals("char")) {
                 if (specific[2].equals("=")
-                        && Character.toString(specific[3].charAt(specific[3].length() - 1)).equals("\'")
+                        && (Character.toString(specific[3].charAt(0)).equals("\'")
+                                && Character.toString(specific[3].charAt(2)).equals("\'")
+                                || specific[3].length() == 1)
                         && specific[specific.length - 1].equals(";")) {
+
                     result = "Semantically Correct!";
                     break;
                 } else {
