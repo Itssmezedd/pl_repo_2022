@@ -15,20 +15,30 @@ public class Lab_Activity5 {
         String result = "";
         for (int i = 0;;) {
             if (specific[i].equals("int")) {
-                String num = "1234567890";
-                if (specific[2].equals("=") && num.contains(specific[3])
-                        && specific[specific.length - 1].equals(";")) {
-                    result = "Semantically Correct!";
+                if (specific[2].equals("=") && specific[specific.length - 1].equals(";")) {
+                    char[] chars = specific[3].toCharArray();
+                    for (char c : chars) {
+                        if (Character.isDigit(c)) {
+                            result = "Semantically Correct!";
+                        }
+                    }
                     break;
                 } else {
                     result = "Semantically Incorrect!";
                     break;
                 }
             } else if (specific[i].equals("double")) {
-                String num = "1234567890.";
-                if (specific[2].equals("=") && num.contains(specific[3])
-                        && specific[specific.length - 1].equals(";")) {
-                    result = "Semantically Correct!";
+                if (specific[2].equals("=") && specific[specific.length - 1].equals(";")) {
+                    char[] chars = specific[3].toCharArray();
+                    boolean num = false;
+                    for (char c : chars) {
+                        if (Character.isDigit(c)) {
+                            num = true;
+                        }
+                    }
+                    if (num == true && specific[3].contains(".")) {
+                        result = "Semantically correct!";
+                    }
                     break;
                 } else {
                     result = "Semantically Incorrect!";
